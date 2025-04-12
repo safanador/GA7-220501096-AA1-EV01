@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herramientas de Versionamiento para CI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f5ff;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-image: linear-gradient(to right, #4a6fdc, #2c3e72);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        .tools-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .tool-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .tool-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1rem;
+        }
+        
+        .tool-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #e9efff;
+            border-radius: 50%;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+            color: #4a6fdc;
+        }
+        
+        .tool-name {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #2c3e72;
+        }
+        
+        .tool-description {
+            margin-bottom: 1rem;
+            color: #555;
+        }
+        
+        .features-list {
+            list-style-type: none;
+        }
+        
+        .features-list li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .features-list li:before {
+            content: "✓";
+            color: #4a6fdc;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .section-title {
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #4a6fdc;
+            color: #2c3e72;
+        }
+        
+        .workflow-container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .workflow-steps {
+            display: flex;
+            justify-content: space-between;
+            margin: 2rem 0;
+            position: relative;
+            flex-wrap: wrap;
+        }
+        
+        .workflow-steps::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #4a6fdc;
+            z-index: 1;
+        }
+        
+        .step {
+            background-color: white;
+            border: 2px solid #4a6fdc;
+            border-radius: 8px;
+            padding: 1rem;
+            z-index: 2;
+            width: 18%;
+            min-width: 180px;
+            margin-bottom: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: #4a6fdc;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-bottom: 0.5rem;
+        }
+        
+        footer {
+            background-color: #2c3e72;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            .tools-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .workflow-steps {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .workflow-steps::before {
+                display: none;
+            }
+            
+            .step {
+                width: 80%;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Herramientas y Tecnologías de Versionamiento</h1>
+        <p class="subtitle">Para componentes de Integración Continua (CI)</p>
+    </header>
+    
+    <main>
+        <section>
+            <h2 class="section-title">Herramientas de Control de Versiones</h2>
+            <div class="tools-container">
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-icon">Git</div>
+                        <h3 class="tool-name">Git</h3>
+                    </div>
+                    <p class="tool-description">Sistema de control de versiones distribuido diseñado para manejar proyectos desde pequeños a muy grandes con velocidad y eficiencia.</p>
+                    <ul class="features-list">
+                        <li>Ramificación y fusión eficientes</li>
+                        <li>Flujo de trabajo distribuido</li>
+                        <li>Historial completo del proyecto</li>
+                        <li>Integridad criptográfica</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-icon">SVN</div>
+                        <h3 class="tool-name">Subversion</h3>
+                    </div>
+                    <p class="tool-description">Sistema de control de versiones centralizado que mantiene un repositorio único para el código fuente.</p>
+                    <ul class="features-list">
+                        <li>Versionado de directorios completos</li>
+                        <li>Envíos atómicos</li>
+                        <li>Control de acceso granular</li>
+                        <li>Perfecta integración con CI</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-icon">Merc</div>
+                        <h3 class="tool-name">Mercurial</h3>
+                    </div>
+                    <p class="tool-description">Sistema de control de versiones distribuido enfocado en rendimiento y escalabilidad.</p>
+                    <ul class="features-list">
+                        <li>Interfaz simplificada</li>
+                        <li>Alta escalabilidad</li>
+                        <li>Extensiones poderosas</li>
+                        <li>Fácil migración desde SVN</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h2 class="section-title">Plataformas de Gestión de Repos</h2>
+            <div class="tools-container">
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-icon">GH</div>
+                        <h3 class="tool-name">GitHub</h3>
+                    </div>
+                    <p class="tool-description">Plataforma de desarrollo colaborativo para alojar proyectos utilizando Git con características adicionales.</p>
+                    <ul class="features-list">
+                        <li>GitHub Actions para CI/CD</li>
+                        <li>Pull Requests y Code Reviews</li>
+                        <li>Gestión de proyectos integrada</li>
+                        <li>Automatización de flujos de trabajo</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-icon">GL</div>
+                        <h3 class="tool-name">GitLab</h3>
+                    </div>
+                    <p class="tool-description">Plataforma DevOps completa que ofrece repositorios Git, CI/CD, monitoreo y seguridad.</p>
+                    <ul class="features-list">
+                        <li>Pipeline CI/CD integrado</li>
+                        <li>Integración con Kubernetes</li>
+                        <li>Versiones autohospedadas disponibles</li>
+                        <li>Gestión de dependencias y vulnerabilidades</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-icon">BB</div>
+                        <h3 class="tool-name">Bitbucket</h3>
+                    </div>
+                    <p class="tool-description">Solución de Atlassian para control de código fuente y colaboración con integración con Jira y Confluence.</p>
+                    <ul class="features-list">
+                        <li>Bitbucket Pipelines para CI/CD</li>
+                        <li>Integración con Jira y Trello</li>
+                        <li>Permisos granulares para repositorios</li>
+                        <li>Despliegue continuo simplificado</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h2 class="section-title">Herramientas de Versionamiento Semántico</h2>
+            <div class="tools-container">
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-icon">SV</div>
+                        <h3 class="tool-name">SemVer</h3>
+                    </div>
+                    <p class="tool-description">Estándar de versionamiento semántico que define claramente la estructura MAJOR.MINOR.PATCH.</p>
+                    <ul class="features-list">
+                        <li>Claridad en cambios incompatibles</li>
+                        <li>Manejo de dependencias predecible</li>
+                        <li>Integración con gestores de paquetes</li>
+                        <li>Compatibilidad con CI/CD</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-icon">CT</div>
+                        <h3 class="tool-name">Conventional Commits</h3>
+                    </div>
+                    <p class="tool-description">Especificación para mensajes de commit que permite generación automática de números de versión.</p>
+                    <ul class="features-list">
+                        <li>Generación automatizada de CHANGELOG</li>
+                        <li>Determinación automática de versiones</li>
+                        <li>Mejora la comunicación del equipo</li>
+                        <li>Integración con herramientas de CI</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-icon">AV</div>
+                        <h3 class="tool-name">Auto-versioning</h3>
+                    </div>
+                    <p class="tool-description">Herramientas que generan automáticamente números de versión basados en el historial de Git.</p>
+                    <ul class="features-list">
+                        <li>GitVersion para .NET</li>
+                        <li>semantic-release para JavaScript</li>
+                        <li>Integración con pipelines CI</li>
+                        <li>Independiente de plataforma</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2 class="section-title">Flujo de Trabajo CI/CD con Versionamiento</h2>
+            <div class="workflow-container">
+                <div class="workflow-steps">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <h4>Desarrollo</h4>
+                        <p>Creación de código con commits convencionales</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <h4>Integración</h4>
+                        <p>Fusión de cambios y pruebas automatizadas</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <h4>Versionamiento</h4>
+                        <p>Generación automática de versiones semánticas</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <h4>Construcción</h4>
+                        <p>Compilación y empaquetado con etiquetas de versión</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">5</span>
+                        <h4>Despliegue</h4>
+                        <p>Implementación con trazabilidad de versiones</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>© 2025 - Herramientas y Tecnologías de Versionamiento para CI</p>
+    </footer>
+</body>
+</html>
