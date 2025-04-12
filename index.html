@@ -180,6 +180,73 @@
             margin-top: 3rem;
         }
         
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .comparison-table th {
+            background-color: #4a6fdc;
+            color: white;
+            padding: 1rem;
+            text-align: left;
+        }
+        
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f9faff;
+        }
+        
+        .highlight {
+            background-color: #e9efff;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            color: #4a6fdc;
+            font-weight: 500;
+        }
+        
+        .tag {
+            display: inline-block;
+            background-color: #e9efff;
+            color: #4a6fdc;
+            padding: 0.3rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .rating {
+            display: flex;
+            margin: 0.5rem 0;
+        }
+        
+        .rating-star {
+            color: #ffa500;
+            margin-right: 2px;
+        }
+        
+        .info-box {
+            background-color: #e9efff;
+            border-left: 4px solid #4a6fdc;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
         @media (max-width: 768px) {
             .tools-container {
                 grid-template-columns: 1fr;
@@ -197,6 +264,10 @@
             .step {
                 width: 80%;
                 margin-bottom: 1rem;
+            }
+            
+            .comparison-table {
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -223,6 +294,18 @@
                         <li>Historial completo del proyecto</li>
                         <li>Integridad criptográfica</li>
                     </ul>
+                    <div class="rating">
+                        <span class="rating-star">★</span>
+                        <span class="rating-star">★</span>
+                        <span class="rating-star">★</span>
+                        <span class="rating-star">★</span>
+                        <span class="rating-star">★</span>
+                    </div>
+                    <div>
+                        <span class="tag">Distribuido</span>
+                        <span class="tag">Popular</span>
+                        <span class="tag">Código abierto</span>
+                    </div>
                 </div>
                 
                 <div class="tool-card">
@@ -237,6 +320,18 @@
                         <li>Control de acceso granular</li>
                         <li>Perfecta integración con CI</li>
                     </ul>
+                    <div class="rating">
+                        <span class="rating-star">★</span>
+                        <span class="rating-star">★</span>
+                        <span class="rating-star">★</span>
+                        <span class="rating-star">★</span>
+                        <span class="rating-star">☆</span>
+                    </div>
+                    <div>
+                        <span class="tag">Centralizado</span>
+                        <span class="tag">Empresarial</span>
+                        <span class="tag">Maduro</span>
+                    </div>
                 </div>
                 
                 <div class="tool-card">
@@ -251,6 +346,195 @@
                         <li>Extensiones poderosas</li>
                         <li>Fácil migración desde SVN</li>
                     </ul>
+                    <div class="rating">
+                        <span class="rating-star">★</span>
+                        <span class="rating-star">★</span>
+                        <span class="rating-star">★</span>
+                        <span class="rating-star">★</span>
+                        <span class="rating-star">☆</span>
+                    </div>
+                    <div>
+                        <span class="tag">Distribuido</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">Escalable</span>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="section-title">Comparación de Sistemas de Control de Versiones</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Característica</th>
+                        <th>Git</th>
+                        <th>Subversion</th>
+                        <th>Mercurial</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tipo de sistema</td>
+                        <td>Distribuido</td>
+                        <td>Centralizado</td>
+                        <td>Distribuido</td>
+                    </tr>
+                    <tr>
+                        <td>Curva de aprendizaje</td>
+                        <td>Moderada/Alta</td>
+                        <td>Baja</td>
+                        <td>Baja/Moderada</td>
+                    </tr>
+                    <tr>
+                        <td>Rendimiento</td>
+                        <td>Excelente</td>
+                        <td>Bueno</td>
+                        <td>Muy bueno</td>
+                    </tr>
+                    <tr>
+                        <td>Popularidad</td>
+                        <td>Muy alta</td>
+                        <td>Media</td>
+                        <td>Media</td>
+                    </tr>
+                    <tr>
+                        <td>Trabajo sin conexión</td>
+                        <td>Completo</td>
+                        <td>Limitado</td>
+                        <td>Completo</td>
+                    </tr>
+                    <tr>
+                        <td>Manejo de binarios</td>
+                        <td>Regular</td>
+                        <td>Bueno</td>
+                        <td>Regular</td>
+                    </tr>
+                    <tr>
+                        <td>Seguridad</td>
+                        <td>Verificación SHA-1</td>
+                        <td>Permisos detallados</td>
+                        <td>Verificación SHA-1</td>
+                    </tr>
+                    <tr>
+                        <td>Ideal para</td>
+                        <td>Desarrollo colaborativo, proyectos open source, equipos distribuidos</td>
+                        <td>Entornos empresariales con control centralizado, gestión de binarios</td>
+                        <td>Proyectos que requieren simplicidad y control, entornos mixtos</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h2 class="section-title">Herramientas de Desarrollo para Codificación</h2>
+            <div class="info-box">
+                <p>Las herramientas de desarrollo son componentes esenciales en el proceso de integración continua. A continuación, se presentan las principales categorías y herramientas recomendadas.</p>
+            </div>
+            
+            <div class="tools-container">
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-icon">IDE</div>
+                        <h3 class="tool-name">Entornos de Desarrollo</h3>
+                    </div>
+                    <p class="tool-description">IDEs modernos con integración de control de versiones y herramientas de CI/CD.</p>
+                    <ul class="features-list">
+                        <li><span class="highlight">Visual Studio Code</span>: Editor ligero con extensiones Git y DevOps</li>
+                        <li><span class="highlight">IntelliJ IDEA</span>: IDE completo con integración Git y soporte CI</li>
+                        <li><span class="highlight">Eclipse</span>: Plataforma extensible con plugins para CI/CD</li>
+                        <li><span class="highlight">Visual Studio</span>: IDE completo con Azure DevOps integrado</li>
+                    </ul>
+                    <div>
+                        <span class="tag">Esencial</span>
+                        <span class="tag">Productividad</span>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-icon">TDD</div>
+                        <h3 class="tool-name">Herramientas de Testing</h3>
+                    </div>
+                    <p class="tool-description">Frameworks y herramientas para desarrollo guiado por pruebas (TDD) y automatización de tests.</p>
+                    <ul class="features-list">
+                        <li><span class="highlight">Jest</span>: Framework de testing para JavaScript</li>
+                        <li><span class="highlight">JUnit</span>: Framework de testing para Java</li>
+                        <li><span class="highlight">pytest</span>: Framework de testing para Python</li>
+                        <li><span class="highlight">Selenium</span>: Automatización de pruebas UI</li>
+                    </ul>
+                    <div>
+                        <span class="tag">Calidad</span>
+                        <span class="tag">Automatización</span>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-icon">QA</div>
+                        <h3 class="tool-name">Análisis de Código</h3>
+                    </div>
+                    <p class="tool-description">Herramientas de análisis estático y calidad de código para mantener estándares de desarrollo.</p>
+                    <ul class="features-list">
+                        <li><span class="highlight">SonarQube</span>: Plataforma de análisis continuo de código</li>
+                        <li><span class="highlight">ESLint</span>: Linter para JavaScript con reglas personalizables</li>
+                        <li><span class="highlight">Checkstyle</span>: Herramienta de análisis para Java</li>
+                        <li><span class="highlight">CodeClimate</span>: Análisis automatizado de calidad</li>
+                    </ul>
+                    <div>
+                        <span class="tag">Calidad</span>
+                        <span class="tag">Estándares</span>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-icon">DB</div>
+                        <h3 class="tool-name">Gestión de Bases de Datos</h3>
+                    </div>
+                    <p class="tool-description">Herramientas para versionado y migración de esquemas de bases de datos.</p>
+                    <ul class="features-list">
+                        <li><span class="highlight">Flyway</span>: Control de versiones para bases de datos</li>
+                        <li><span class="highlight">Liquibase</span>: Gestión y seguimiento de cambios en BD</li>
+                        <li><span class="highlight">Prisma Migrate</span>: Migraciones declarativas</li>
+                        <li><span class="highlight">Alembic</span>: Herramienta de migración para SQLAlchemy</li>
+                    </ul>
+                    <div>
+                        <span class="tag">Bases de datos</span>
+                        <span class="tag">Migraciones</span>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-icon">Docs</div>
+                        <h3 class="tool-name">Documentación como Código</h3>
+                    </div>
+                    <p class="tool-description">Herramientas para mantener la documentación versionada junto con el código.</p>
+                    <ul class="features-list">
+                        <li><span class="highlight">Swagger/OpenAPI</span>: Documentación API como código</li>
+                        <li><span class="highlight">MkDocs</span>: Generador de sitios de documentación</li>
+                        <li><span class="highlight">Javadoc/JSDoc</span>: Documentación desde comentarios</li>
+                        <li><span class="highlight">Sphinx</span>: Generador de documentación para Python</li>
+                    </ul>
+                    <div>
+                        <span class="tag">Documentación</span>
+                        <span class="tag">Automatización</span>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-icon">Pkg</div>
+                        <h3 class="tool-name">Gestores de Dependencias</h3>
+                    </div>
+                    <p class="tool-description">Herramientas para gestionar y versionar las dependencias del proyecto.</p>
+                    <ul class="features-list">
+                        <li><span class="highlight">npm/Yarn</span>: Gestores de paquetes para JavaScript</li>
+                        <li><span class="highlight">Maven/Gradle</span>: Gestores de dependencias para Java</li>
+                        <li><span class="highlight">pip/Poetry</span>: Gestores de paquetes para Python</li>
+                        <li><span class="highlight">NuGet</span>: Gestor de paquetes para .NET</li>
+                    </ul>
+                    <div>
+                        <span class="tag">Dependencias</span>
+                        <span class="tag">Gestión</span>
+                    </div>
                 </div>
             </div>
             
@@ -268,6 +552,18 @@
                         <li>Gestión de proyectos integrada</li>
                         <li>Automatización de flujos de trabajo</li>
                     </ul>
+                    <div class="rating">
+                        <span class="rating-star">★</span>
+                        <span class="rating-star">★</span>
+                        <span class="rating-star">★</span>
+                        <span class="rating-star">★</span>
+                        <span class="rating-star">★</span>
+                    </div>
+                    <div>
+                        <span class="tag">Popular</span>
+                        <span class="tag">Microsoft</span>
+                        <span class="tag">Actions</span>
+                    </div>
                 </div>
                 
                 <div class="tool-card">
@@ -282,6 +578,18 @@
                         <li>Versiones autohospedadas disponibles</li>
                         <li>Gestión de dependencias y vulnerabilidades</li>
                     </ul>
+                    <div class="rating">
+                        <span class="rating-star">★</span>
+                        <span class="rating-star">★</span>
+                        <span class="rating-star">★</span>
+                        <span class="rating-star">★</span>
+                        <span class="rating-star">★</span>
+                    </div>
+                    <div>
+                        <span class="tag">DevOps</span>
+                        <span class="tag">Self-hosted</span>
+                        <span class="tag">CI/CD</span>
+                    </div>
                 </div>
                 
                 <div class="tool-card">
@@ -296,10 +604,76 @@
                         <li>Permisos granulares para repositorios</li>
                         <li>Despliegue continuo simplificado</li>
                     </ul>
+                    <div class="rating">
+                        <span class="rating-star">★</span>
+                        <span class="rating-star">★</span>
+                        <span class="rating-star">★</span>
+                        <span class="rating-star">★</span>
+                        <span class="rating-star">☆</span>
+                    </div>
+                    <div>
+                        <span class="tag">Atlassian</span>
+                        <span class="tag">Jira</span>
+                        <span class="tag">Empresarial</span>
+                    </div>
                 </div>
             </div>
             
+            <h3 class="section-title">Comparación de Plataformas de Gestión</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Característica</th>
+                        <th>GitHub</th>
+                        <th>GitLab</th>
+                        <th>Bitbucket</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>CI/CD integrado</td>
+                        <td>GitHub Actions</td>
+                        <td>GitLab CI/CD</td>
+                        <td>Bitbucket Pipelines</td>
+                    </tr>
+                    <tr>
+                        <td>Opciones de implementación</td>
+                        <td>Cloud (GitHub.com), Enterprise (On-premises)</td>
+                        <td>Cloud (GitLab.com), Self-managed, Single server</td>
+                        <td>Cloud (Bitbucket.org), Data Center (On-premises)</td>
+                    </tr>
+                    <tr>
+                        <td>Integración con herramientas</td>
+                        <td>Amplia, ecosistema de apps</td>
+                        <td>Ecosistema completo DevOps integrado</td>
+                        <td>Integración con productos Atlassian</td>
+                    </tr>
+                    <tr>
+                        <td>Gestión de proyectos</td>
+                        <td>Projects, Issues, Milestones</td>
+                        <td>Issue Boards, Epics, Milestones</td>
+                        <td>Jira Software (integración)</td>
+                    </tr>
+                    <tr>
+                        <td>Precio (plan gratuito)</td>
+                        <td>Repos públicos ilimitados, colaboradores ilimitados</td>
+                        <td>Repos ilimitados, 400 min CI/CD/mes</td>
+                        <td>5 usuarios, repos ilimitados</td>
+                    </tr>
+                    <tr>
+                        <td>Ideal para</td>
+                        <td>Código abierto, colaboración pública, amplia comunidad</td>
+                        <td>DevOps completo, automatización, CI/CD avanzado</td>
+                        <td>Equipos que ya usan Jira, Confluence u otras herramientas Atlassian</td>
+                    </tr>
+                </tbody>
+            </table>
+            
             <h2 class="section-title">Herramientas de Versionamiento Semántico</h2>
+            <div class="info-box">
+                <p>El versionamiento semántico proporciona un sistema claro para numerar versiones y comunicar cambios en el software. A continuación, se describen las herramientas principales para implementarlo en proyectos de desarrollo.</p>
+            </div>
+            
             <div class="tools-container">
                 <div class="tool-card">
                     <div class="tool-header">
@@ -308,11 +682,22 @@
                     </div>
                     <p class="tool-description">Estándar de versionamiento semántico que define claramente la estructura MAJOR.MINOR.PATCH.</p>
                     <ul class="features-list">
-                        <li>Claridad en cambios incompatibles</li>
-                        <li>Manejo de dependencias predecible</li>
-                        <li>Integración con gestores de paquetes</li>
-                        <li>Compatibilidad con CI/CD</li>
+                        <li>MAJOR: Cambios incompatibles con versiones anteriores</li>
+                        <li>MINOR: Funcionalidad nueva compatible con versiones anteriores</li>
+                        <li>PATCH: Correcciones de errores compatibles</li>
+                        <li>Etiquetas adicionales para pre-releases y metadata</li>
                     </ul>
+                    <div class="rating">
+                        <span class="rating-star">★</span>
+                        <span class="rating-star">★</span>
+                        <span class="rating-star">★</span>
+                        <span class="rating-star">★</span>
+                        <span class="rating-star">★</span>
+                    </div>
+                    <div>
+                        <span class="tag">Estándar</span>
+                        <span class="tag">Especificación</span>
+                    </div>
                 </div>
                 
                 <div class="tool-card">
@@ -322,65 +707,3 @@
                     </div>
                     <p class="tool-description">Especificación para mensajes de commit que permite generación automática de números de versión.</p>
                     <ul class="features-list">
-                        <li>Generación automatizada de CHANGELOG</li>
-                        <li>Determinación automática de versiones</li>
-                        <li>Mejora la comunicación del equipo</li>
-                        <li>Integración con herramientas de CI</li>
-                    </ul>
-                </div>
-                
-                <div class="tool-card">
-                    <div class="tool-header">
-                        <div class="tool-icon">AV</div>
-                        <h3 class="tool-name">Auto-versioning</h3>
-                    </div>
-                    <p class="tool-description">Herramientas que generan automáticamente números de versión basados en el historial de Git.</p>
-                    <ul class="features-list">
-                        <li>GitVersion para .NET</li>
-                        <li>semantic-release para JavaScript</li>
-                        <li>Integración con pipelines CI</li>
-                        <li>Independiente de plataforma</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        
-        <section>
-            <h2 class="section-title">Flujo de Trabajo CI/CD con Versionamiento</h2>
-            <div class="workflow-container">
-                <div class="workflow-steps">
-                    <div class="step">
-                        <span class="step-number">1</span>
-                        <h4>Desarrollo</h4>
-                        <p>Creación de código con commits convencionales</p>
-                    </div>
-                    <div class="step">
-                        <span class="step-number">2</span>
-                        <h4>Integración</h4>
-                        <p>Fusión de cambios y pruebas automatizadas</p>
-                    </div>
-                    <div class="step">
-                        <span class="step-number">3</span>
-                        <h4>Versionamiento</h4>
-                        <p>Generación automática de versiones semánticas</p>
-                    </div>
-                    <div class="step">
-                        <span class="step-number">4</span>
-                        <h4>Construcción</h4>
-                        <p>Compilación y empaquetado con etiquetas de versión</p>
-                    </div>
-                    <div class="step">
-                        <span class="step-number">5</span>
-                        <h4>Despliegue</h4>
-                        <p>Implementación con trazabilidad de versiones</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    
-    <footer>
-        <p>© 2025 - Herramientas y Tecnologías de Versionamiento para CI</p>
-    </footer>
-</body>
-</html>
